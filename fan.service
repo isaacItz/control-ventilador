@@ -1,0 +1,20 @@
+[Unit]
+Description=python fan sender
+After=network.target
+
+[Service]
+Type=simple
+
+Environment="PATH="
+
+WorkingDirectory=/root/scripts/ventiladores
+ExecStart=/usr/bin/python3 main.py
+# Restart configuration
+Restart=always
+RestartSec=5
+# Logging
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
